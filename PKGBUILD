@@ -4,7 +4,7 @@ pkgrel=1
 
 pkgdesc='pdlinux grub theme'
 arch=('any')
-url="https://gitlab.com/garuda-linux/themes-and-settings/artwork/grub-theme-garuda-dr460nized"
+url=""
 license=('GPL')
 makedepends=('git')
 source=("grub-theme::git+$url.git")
@@ -21,5 +21,5 @@ package() {
 	provides=('grub-theme-pdlinux-custom')
 	cd grub-theme/pdlinux-live || exit
 	sed -i -e 's,.*text = "Welcome to PdLinux".*,#text = "Welcome to PdLinux",' theme.txt #remove welcome message
-	find . -type f -exec install -D -m644 {} "${pkgdir}"/usr/share/grub/themes/pflinux/{} \;
+	find . -type f -exec install -D -m644 {} "${pkgdir}"/usr/share/grub/themes/pdlinux/{} \;
 }
